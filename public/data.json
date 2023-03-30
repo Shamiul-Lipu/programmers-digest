@@ -7,7 +7,7 @@
         "readingTime": 5,
         "blogTitle": "How to get your first job as a self-taught programmer",
         "publishedDate": "Mar 19(4 Days ago)",
-        "targetStudent": [
+        "targetAudience": [
             "#beginners",
             "#programming"
         ]
@@ -20,7 +20,7 @@
         "readingTime": 13,
         "blogTitle": "Getting Started with Nextjs and GraphCMS",
         "publishedDate": "Feb 03(6 Days ago)",
-        "targetStudent": [
+        "targetAudience": [
             "#Nestjs",
             "#GraphCMS",
             "#programming"
@@ -34,7 +34,7 @@
         "readingTime": 7,
         "blogTitle": "Beginner-friendly resources for Javascript",
         "publishedDate": "Oct 11(few Days ago)",
-        "targetStudent": [
+        "targetAudience": [
             "#javascript",
             "#beginners",
             "#programming"
@@ -48,7 +48,7 @@
         "readingTime": 10,
         "blogTitle": "The Beginner-friendly way to learn from FreeCodeCamp on YouTube",
         "publishedDate": "Dec 4(few Days ago)",
-        "targetStudent": [
+        "targetAudience": [
             "#programming",
             "#free_resources"
         ]
@@ -61,7 +61,7 @@
         "readingTime": 15,
         "blogTitle": "Beginner-Friendly Animated iPhone 6 UI Tutorial",
         "publishedDate": "Jan 3(few weeks ago)",
-        "targetStudent": [
+        "targetAudience": [
             "#UI/UX",
             "#tutorial"
         ]

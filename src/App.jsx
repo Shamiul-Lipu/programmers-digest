@@ -6,6 +6,7 @@ import Sidebar from './component/Sidebar/Sidebar'
 
 function App() {
   const [data, setData] = useState([]);
+  const [readingTime, setReadingTime] = useState([])
 
   // fetching json data
   useEffect(() => {
@@ -14,17 +15,34 @@ function App() {
       .then(data => setData(data))
   }, [])
 
+  // const previousTime = [];
+
+  const addTime = (readingTime) => {
+    const previousTime = JSON.parse(localStorage.getItem('readingTime'));
+    if (previousTime) {
+      const total = readingTime + previousTime;
+      localStorage.setItem('readingTime', total);
+      setReadingTime(total)
+    }
+    else {
+      localStorage.setItem('readingTime', readingTime)
+      setReadingTime(readingTime)
+    }
+    // setReadingTime(readingTime)
+  }
+
+
   return (
     <div className="App">
       <Header></Header>
       <div className='grid grid-cols-2'>
         <div className=''>
           {
-            data.map(singleData => <Card singleData={singleData} key={singleData.id} />)
+            data.map(singleData => <Card addTime={addTime} singleData={singleData} key={singleData.id} />)
           }
         </div>
         <div>
-          <Sidebar></Sidebar>
+          <Sidebar readingTime={readingTime}></Sidebar>
         </div>
       </div>
     </div >

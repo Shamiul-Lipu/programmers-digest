@@ -1,8 +1,9 @@
 import React from 'react';
 
-const Card = ({ singleData }) => {
+const Card = ({ singleData, addTime }) => {
     const { id, coverImg, author, blogTitle, personImg, publishedDate, readingTime, targetAudience } = singleData;
-    console.log(singleData)
+    // console.log(singleData)
+    // console.log(addTime)
     return (
         <div className='py-3'>
             <div className="card w-full bg-base-100 shadow-xl">
@@ -32,7 +33,7 @@ const Card = ({ singleData }) => {
                             targetAudience.map((tag, index) => <li className='me-3 my-3' key={index}>{tag}</li>)
                         }
                     </ol>
-                    <p className='flex justify-start underline underline-offset-1 text-blue-700 cursor-pointer	'>Mark as read</p>
+                    <p onClick={() => addTime(readingTime)} className='flex justify-start underline underline-offset-1 text-blue-700 cursor-pointer	'>Mark as read</p>
                 </div>
             </div>
         </div>

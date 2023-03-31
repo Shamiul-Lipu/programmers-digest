@@ -5,6 +5,7 @@ import Card from './component/BlogCard/Card'
 import Header from './component/Header/Header'
 import Sidebar from './component/Sidebar/Sidebar'
 import 'react-toastify/dist/ReactToastify.css'
+import Blog from './component/BlogQuestions/Blog'
 
 function App() {
   const [data, setData] = useState([]);
@@ -49,7 +50,7 @@ function App() {
     // toast
     const found = bookmarked.find(e => e === id)
     if (found == id) {
-      toast("You Already Bookmarked This Blog!");
+      toast("You Have Already Bookmarked This Blog!");
       return;
     }
     const blogs = [...blogTitl, blogTitle]
@@ -70,6 +71,9 @@ function App() {
         <div className='sm:w-3/4 md:w-2/4 p-2'>
           <Sidebar bookmarked={bookmarked} blogTitl={blogTitl} time={time} ></Sidebar>
         </div>
+      </div>
+      <div>
+        <Blog></Blog>
       </div>
       <ToastContainer></ToastContainer>
     </div >

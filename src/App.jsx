@@ -8,7 +8,8 @@ import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   const [data, setData] = useState([]);
-  const [readingTime, setReadingTime] = useState([]);
+  const [readTime, setReadingTime] = useState([]);
+  const [time, setTime] = useState([])
   const [bookmarked, setBookmarked] = useState([])
   const [blogTitl, setBlogTitle] = useState([])
 
@@ -21,28 +22,34 @@ function App() {
 
   // const previousTime = [];
   // add reading time
+  // const addTime = (readingTime) => {
+  //   const previousTime = JSON.parse(localStorage.getItem('readingTime'));
+  //   if (previousTime) {
+  //     const total = readingTime + previousTime;
+  //     localStorage.setItem('readingTime', total);
+  //     setReadingTime(total)
+  //   }
+  //   else {
+  //     localStorage.setItem('readingTime', readingTime)
+  //     setReadingTime(readingTime)
+  //   }
+  // }
   const addTime = (readingTime) => {
-    const previousTime = JSON.parse(localStorage.getItem('readingTime'));
-    if (previousTime) {
-      const total = readingTime + previousTime;
-      localStorage.setItem('readingTime', total);
-      setReadingTime(total)
-    }
-    else {
-      localStorage.setItem('readingTime', readingTime)
-      setReadingTime(readingTime)
-    }
-    // setReadingTime(readingTime)
+    let previousTime = [...readTime, readingTime];
+    const newTime = previousTime.reduce((a, c) => a + c, 0)
+    setReadingTime(previousTime);
+    setTime(newTime)
+    // console.log("sdf", previousTime, newTime);
   }
 
 
   // add bookmark blog
   const addBookmark = (id, blogTitle) => {
     const arr = [...bookmarked, id, blogTitle]
-
+    // toast
     const found = bookmarked.find(e => e === id)
     if (found == id) {
-      toast("Wow so easy!");
+      toast("You Already Bookmarked This Blog!");
       return;
     }
     const blogs = [...blogTitl, blogTitle]
@@ -61,7 +68,7 @@ function App() {
           }
         </div>
         <div>
-          <Sidebar bookmarked={bookmarked} blogTitl={blogTitl} readingTime={readingTime} ></Sidebar>
+          <Sidebar bookmarked={bookmarked} blogTitl={blogTitl} time={time} ></Sidebar>
         </div>
       </div>
       <ToastContainer></ToastContainer>

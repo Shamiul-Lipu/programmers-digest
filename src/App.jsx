@@ -59,15 +59,15 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="App container mx-auto">
       <Header></Header>
-      <div className='grid grid-cols-2'>
-        <div className=''>
+      <div className='grid sm:grid-cols-1 md:flex px-2'>
+        <div className='sm:w-3/4 md:w-full'>
           {
             data.map(singleData => <Card addBookmark={addBookmark} addTime={addTime} singleData={singleData} key={singleData.id} />)
           }
         </div>
-        <div>
+        <div className='sm:w-3/4 md:w-2/4 p-2'>
           <Sidebar bookmarked={bookmarked} blogTitl={blogTitl} time={time} ></Sidebar>
         </div>
       </div>
